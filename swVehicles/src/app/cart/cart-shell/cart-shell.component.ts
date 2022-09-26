@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CartListComponent } from '../cart-list/cart-list.component';
+import { CartTotalComponent } from '../cart-total/cart-total.component';
 
 @Component({
   template: `
@@ -10,7 +12,9 @@ import { Component } from '@angular/core';
         <sw-cart-total></sw-cart-total>
     </div>
   </div>
-  `
+  `,
+  standalone: true,
+  imports: [ CartTotalComponent, CartListComponent ]
 })
 export class CartShellComponent {
 

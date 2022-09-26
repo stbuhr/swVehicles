@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BehaviorSubject, map, tap } from 'rxjs';
 import { CartItem } from '../cart';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'sw-cart-item',
-  templateUrl: './cart-item.component.html'
+  templateUrl: './cart-item.component.html',
+  standalone: true,
+  imports: [ FormsModule, CommonModule ]
 })
 export class CartItemComponent {
   // Use a setter to emit whenever a new item is set

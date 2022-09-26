@@ -7,10 +7,6 @@ import { FormsModule } from '@angular/forms';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { CartShellComponent } from './cart/cart-shell/cart-shell.component';
-import { CartListComponent } from './cart/cart-list/cart-list.component';
-import { CartTotalComponent } from './cart/cart-total/cart-total.component';
-import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   imports: [
@@ -21,25 +17,23 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
       { path: 'welcome', component: WelcomeComponent },
       {
         path: 'vehicles',
-        loadChildren: () =>
-          import('./vehicles/vehicle.module').then(m => m.VehicleModule)
+        loadComponent: () =>
+          import('./vehicles/vehicle-shell/vehicle-shell.component').then(
+            (mod) => mod.VehicleShellComponent
+          ),
       },
       {
         path: 'cart',
-        component: CartShellComponent
+        loadComponent: () =>
+          import('./cart/cart-shell/cart-shell.component').then(
+            (mod) => mod.CartShellComponent
+          ),
       },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', component: PageNotFoundComponent }
-    ])
+      { path: '**', component: PageNotFoundComponent },
+    ]),
   ],
-  declarations: [
-    AppComponent,
-    WelcomeComponent,
-    CartShellComponent,
-    CartListComponent,
-    CartTotalComponent,
-    CartItemComponent
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, WelcomeComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

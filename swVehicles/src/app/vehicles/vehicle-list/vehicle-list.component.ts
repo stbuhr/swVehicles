@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { combineLatest, EMPTY, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -7,7 +8,9 @@ import { VehicleService } from '../vehicle.service';
 @Component({
   selector: 'sw-vehicle-list',
   templateUrl: './vehicle-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ CommonModule ]
 })
 export class VehicleListComponent {
   pageTitle = 'Vehicles';

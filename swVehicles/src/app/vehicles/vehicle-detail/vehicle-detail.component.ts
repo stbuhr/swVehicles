@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { catchError, combineLatest, EMPTY, map, Subject, tap } from 'rxjs';
 import { CartService } from 'src/app/cart/cart.service';
@@ -6,7 +7,9 @@ import { VehicleService } from '../vehicle.service';
 
 @Component({
   selector: 'sw-vehicle-detail',
-  templateUrl: './vehicle-detail.component.html'
+  templateUrl: './vehicle-detail.component.html',
+  standalone: true,
+  imports: [ CommonModule ]
 })
 export class VehicleDetailComponent {
   private errorMessageSubject = new Subject<string>();

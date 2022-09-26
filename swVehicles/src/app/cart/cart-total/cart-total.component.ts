@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'sw-cart-total',
-  templateUrl: './cart-total.component.html'
+  templateUrl: './cart-total.component.html',
+  standalone: true,
+  imports: [ CommonModule ]
 })
 export class CartTotalComponent {
 

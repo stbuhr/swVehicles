@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+import { VehicleDetailComponent } from '../vehicle-detail/vehicle-detail.component';
+import { VehicleListComponent } from '../vehicle-list/vehicle-list.component';
 
 @Component({
+  standalone: true,
+  imports: [ VehicleDetailComponent, VehicleListComponent ],
   template: `
   <div class='row'>
     <div class='col-md-4'>
